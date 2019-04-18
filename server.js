@@ -31,7 +31,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-var mongo = mongoose.connection;
+const mongo = mongoose.connection;
 mongo.on('error', console.error.bind(console, 'connection error:'));
 mongo.once('open', function() {
     console.log("Mongoose Connected to DB Succesfully")
