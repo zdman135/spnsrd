@@ -12,6 +12,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/{LOCALDATABA
 
 const passport = require("passport");
 const users = require("./routes/api/users");
+const events = require("./routes/api/events");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 app.use("/api/users", users);
+app.use("/api/events", events);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

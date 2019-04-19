@@ -1,4 +1,4 @@
 module.exports = {
-    // mongoURI: TODO, ABLE TO REMOVE??
+    mongoURI: "TODO",
     secretOrKey: "secret"
   };
