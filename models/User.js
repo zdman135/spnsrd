@@ -18,8 +18,27 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  events: [Schema.Types.ObjectId],
+  isSponsor: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  image: {
+    type: String,
+    required: true,
+    //TODO: ADD DEFAULT NO USER IMAGE
+  },
+  age: {
+    type: Number,
+    min: 18,
+    max: 200
   }
-});
+}, {id: true});
+
+UserSchema.plugin(uniqueValidator);
 
 const User = mongoose.model("users", UserSchema);
+
 module.exports = User;
