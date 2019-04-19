@@ -1,7 +1,10 @@
-import React from "react";
+import React from 'react'
+import { Container } from 'semantic-ui-react'
 
-function EventCard() {
-    return (<h1>EventCard Component - Alex Working On</h1>)
-}
-
-export default EventCard;
+const EventCardContainer = () => (
+    <Container>
+        Event Card Placeholder
+    </Container>
+  )
+  
+  export default EventCardContainer;
