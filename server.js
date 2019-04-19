@@ -36,7 +36,7 @@ app.get("*", (req, res) => {
 const mongo = mongoose.connection;
 mongo.on('error', console.error.bind(console, 'connection error:'));
 mongo.once('open', function() {
-    console.log("Mongoose Connected to DB Succesfully")
+    console.log(`Mongoose Connected to DB Succesfully using ${MONGODB_URI}`)
     app.listen(PORT, function() {
       console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
