@@ -1,4 +1,6 @@
 import React from "react";
+import './App.css';
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
@@ -9,6 +11,7 @@ import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
 // import EventCard from "./components/EventCard";
 import 'semantic-ui-css/semantic.min.css';
+
 
 function App() {
   return (
