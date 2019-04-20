@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import {
   Button,
   Form,
@@ -7,12 +7,11 @@ import {
   Message,
   Segment,
 } from 'semantic-ui-react';
-
 export default () => (
   <Grid centered columns={2}>
     <Grid.Column>
       <Header as="h2" textAlign="center">
-        Login
+        Please follow the following steps.
       </Header>
       <Segment>
         <Form size="large">
@@ -20,7 +19,13 @@ export default () => (
             fluid
             icon="user"
             iconPosition="left"
-            placeholder="Email address"
+            placeholder="Full Name"
+          />
+           <Form.Input
+            fluid
+            icon="email"
+            iconPosition="left"
+            placeholder="E-Mail"
           />
           <Form.Input
             fluid
@@ -30,13 +35,20 @@ export default () => (
             type="password"
           />
 
-          <Button color="blue" fluid size="large">
-            Login
+          <Form.Input
+            fluid
+            icon="user"
+            iconPosition="left"
+            placeholder="Age"
+            type="Age"
+          />
+          <Button color="purple" fluid size="large">
+            Register
           </Button>
         </Form>
       </Segment>
       <Message>
-        Not registered yet? <a href="#">Sign Up</a>
+        Already have an account? <a href="#">Login Here</a>
       </Message>
     </Grid.Column>
   </Grid>
