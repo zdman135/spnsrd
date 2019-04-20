@@ -7,6 +7,8 @@ import Event from "./components/Event";
 import Index from "./components/Index";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
+// import EventCard from "./components/EventCard";
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
   return (
