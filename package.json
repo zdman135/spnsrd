@@ -41,6 +41,8 @@
     "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
     "validator": "^10.11.0"
   }
 }
