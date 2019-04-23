@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import Event from "./components/Event";
 import Profile from "./components/Profile";
 import NotFound from "./components/NotFound";
-// import EventCard from "./components/EventCard";
+import EventCard from "./components/EventCard";
 import 'semantic-ui-css/semantic.min.css';
 
 import LandingPage from "./pages/LandingPage";
