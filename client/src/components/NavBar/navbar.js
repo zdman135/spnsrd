@@ -3,7 +3,7 @@ import { Menu } from 'semantic-ui-react'
 
 const colorsA = ['Homepage', 'Login', 'Sign Up', 'About Us']
 
-export default class spnsrdNavbar extends Component {
+export default class NavBar extends Component {
   state = { activeA: colorsA[0]}
 
   handleAClick = (e, { name }) => this.setState({ activeA: name })
