@@ -1,7 +1,23 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import { Container} from "semantic-ui-react";
 
-function NavBar() {
-    return (<h1>NavBar Component</h1>)
-}
+import Example from "./navbar";
 
-export default NavBar;
+const App = ({ children }) => (
+  <Container style={{ margin: 20 }}>
+    {children}
+  </Container>
+);
+
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
+
+ReactDOM.render(
+  <App>
+    <Example />
+  </App>,
+  document.getElementById("root")
+);
