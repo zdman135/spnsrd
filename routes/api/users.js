@@ -29,7 +29,9 @@ router.post("/register", (req, res) => {
         const newUser = new User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            image: req.body.image,
+            age: req.body.age
         });
 
         // Hash password before saving to database
@@ -74,7 +76,7 @@ router.post("/login", (req, res) => {
             payload,
             keys.secretOrKey,
             {
-              expiresIn: 31556926 // 1 year in seconds
+              expiresIn: 21600 // 6 hours in seconds
             },
             (err, token) => {
               res.json({
