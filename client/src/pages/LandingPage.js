@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import API from "../utils/API"
 import Login  from "../components/Login/Login";
-
+import AuthLogin from "../components/Auth/Login";
 class LandingPage extends Component {
 
     state = {
@@ -15,7 +15,8 @@ class LandingPage extends Component {
             password: this.state.password
           })
             .then(res => {
-              console.log(res.data)
+              console.log(res.data.token)
+              AuthLogin.setToken(res.data.token);
             })
             .catch(err => console.log(err));
     }
