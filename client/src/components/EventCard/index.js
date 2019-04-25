@@ -30,6 +30,8 @@ const EventCardContainer = (props) => (
                 </a>
             </div>    
         </a>
+
+        
     </Container> 
   )
   
