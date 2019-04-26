@@ -4,7 +4,7 @@ import { Card, Icon } from 'semantic-ui-react'
 const extra = (
   <a>
     <Icon name='user' />
-    More Details on Event
+    More Details
   </a>
 )
 
@@ -12,7 +12,7 @@ const CardExampleCardProps = () => (
   <Card
     header='Sponsor/Sponsee Name'
     meta='Sponsor/Sponsee'
-    description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+    description='Once we get our data working, this is where the data on the events should populate.'
     extra={extra}
   />
 )
