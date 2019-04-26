@@ -15,7 +15,7 @@ class LandingPage extends Component {
             password: this.state.password
           })
             .then(res => {
-              console.log(res.data.token)
+              console.log(res.data)
               AuthLogin.setToken(res.data.token);
             })
             .catch(err => console.log(err));
