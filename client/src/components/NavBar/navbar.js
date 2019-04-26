@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import './navbar.css';
+
 
 const colorsA = ['Homepage', 'Login', 'Sign Up', 'About Us']
 
