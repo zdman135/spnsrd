@@ -18,6 +18,7 @@ import 'semantic-ui-css/semantic.min.css';
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
+import CreateEventPage from "./pages/CreateEventPage";
 
 import AuthLogin from "./components/Auth/Login";
 
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/register" component={RegisterPage} />
           <PrivateRoute exact path="/event" component={Event} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
+          <PrivateRoute exact path="/createevent" component={CreateEventPage} /> 
           <Route component={NotFound} />
         </Switch>
       </div>
