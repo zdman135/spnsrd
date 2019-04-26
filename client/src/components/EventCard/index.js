@@ -1,28 +1,36 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import './navbar.css';
-import { Container, Header, List } from "semantic-ui-react";
+import React from 'react'
+import { Container } from 'semantic-ui-react'
 
-import Example from "./example";
-
-const App = ({ children }) => (
-  <Container style={{ margin: 20 }}>
-      <Header as="h3">Sponsor Events</Header>
-
-    
- {children}
-
-  </Container>
-);
-
-const styleLink = document.createElement("link");
-styleLink.rel = "stylesheet";
-styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
-document.head.appendChild(styleLink);
-
-ReactDOM.render(
-  <App>
-    <Example />
-  </App>,
-  document.getElementById("root")
-);
+const EventCardContainer = (props) => (
+    <Container>
+        <a class="ui card" href="#">
+            <div class="image">
+                <img alt="cardImg" src="https://www.aj-chambers.com/front/images/default-user.jpg"/>
+            </div>
+            <div class="content">
+                <a class="header">Event Name</a>
+                <div class="meta">
+                <span class="location">Event Location</span>
+                <br/>
+                <span class="date">Event Date</span>
+                </div>
+                <div class="description">
+                    EventShortText
+                </div>
+            </div>
+            <div class="extra content">
+                <a>
+                <i class="money bill alternate outline icon"></i>
+                    Unsponsored
+                </a>
+                <br/>
+                <a>
+                <i class="money bill alternate icon"></i>
+                    Sponsored
+                </a>
+            </div>    
+        </a>
+    </Container> 
+  )
+  
+  export default EventCardContainer;
