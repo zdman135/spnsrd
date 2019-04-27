@@ -11,7 +11,6 @@ import {
 
 import NavBar from "./components/NavBar/navbar.js";
 import Event from "./components/Event";
-import NotFound from "./components/NotFound";
 import EventCard from "./components/EventCard";
 import 'semantic-ui-css/semantic.min.css';
 
@@ -20,6 +19,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreateEventPage from "./pages/CreateEventPage";
 import EventProfilePage from "./pages/EventProfilePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import AuthLogin from "./components/Auth/Login";
 
@@ -44,7 +44,7 @@ function App() {
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
           <Route path="/event/:id" component={EventProfilePage} />
-          <Route component={NotFound} />
+          <Route component={NotFoundPage} />
         </Switch>
       </div>
     </Router>

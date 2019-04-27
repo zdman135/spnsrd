@@ -42,7 +42,7 @@ const EventSchema = new Schema({
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        required: true
+        required: false //TODO
         //TODO: ADD DEFAULT USER JUST IN CASE
     },
     image: {
