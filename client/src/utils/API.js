@@ -8,19 +8,27 @@ export default {
     register: function(register) {
         return axios.post("/api/users/register", register);
     },
-    getOneUser: function(user) {
+    getOneUserByEmail: function(user) {
         return axios.get(`/api/users/${user}`);
     },
-    updateUser: function(email, update) {
-        return axios.put(`/api/users/${email}`, update);
+    updateUserByEmail: function(email, updateUserData) {
+        return axios.put(`/api/users/${email}`, updateUserData);
     },
 
     // Event Routes
-    getEvents: "",
-    getEventById: "",
+    getEvents: function() {
+        return axios.get("/api/events/");
+    },
+    getEventById: function(eventId) {
+        return axios.get(`/api/events/${eventId}`)
+    },
     createEvent: function(event) {
         return axios.post("/api/events/createevent", event);
     },
-    updateEvent: "",
-    deleteEvent: ""
+    updateEventById: function(eventId, eventUpdateData) {
+        return axios.put(`/api/events/${eventId}`, eventUpdateData)
+    },
+    deleteEventById: function(eventId) {
+        return axios.delete(`/api/events/${eventId}`)
+    }
 };

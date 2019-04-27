@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+      return res.status(404).json({ emailnotfound: "Email/Username not found" });
     }
     // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
@@ -100,7 +100,7 @@ router.get("/:email", (req, res) => {
 
   User.findOne({ email: email }).then(user => {
     if (!user) {
-      return res.status(404).json({ user: "user was not found" });
+      return res.status(404).json({ user: "User was not found" });
     }
     return res.status(200).json(user)
   });
@@ -114,7 +114,7 @@ router.put("/:email", (req, res) => {
   
   User.findOneAndUpdate(findEmail, { $set:  req.body }, function (err, doc) {
     if (err) return res.send(500, { error: err });
-    return res.send("succesfully saved");
+    return res.send("User data succesfully saved.");
   });
 
 });
