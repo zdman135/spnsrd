@@ -11,7 +11,6 @@ import {
 
 import NavBar from "./components/NavBar/navbar.js";
 import Event from "./components/Event";
-import EventCard from "./components/EventCard";
 import 'semantic-ui-css/semantic.min.css';
 
 import LandingPage from "./pages/LandingPage";
@@ -22,6 +21,7 @@ import EventProfilePage from "./pages/EventProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import AuthLogin from "./components/Auth/Login";
+import EventsLandingPage from "./pages/EventsLandingPage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -43,6 +43,7 @@ function App() {
           <PrivateRoute exact path="/event" component={Event} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
+          <PrivateRoute exact path="/events" component={EventsLandingPage} />
           <Route path="/event/:id" component={EventProfilePage} />
           <Route component={NotFoundPage} />
         </Switch>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
+import { Container, Header} from "semantic-ui-react";
 
 const extra = (
   <a>
@@ -8,7 +9,7 @@ const extra = (
   </a>
 )
 
-const CardExampleCardProps = () => (
+const EventsCard = (props) => (
   <Card
     header='Sponsor/Sponsee'
     meta='Friend'
@@ -16,4 +17,4 @@ const CardExampleCardProps = () => (
     extra={extra}
   />
 )
-export default CardExampleCardProps
+export default EventsCard;
