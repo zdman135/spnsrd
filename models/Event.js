@@ -3,12 +3,6 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
-    // manualID: {
-    //     type: Schema.Types.ObjectId,
-    //     default: mongoose.Types.ObjectId(),
-    //     required: true,
-    //     unique: true
-    // },
     name: {
         type: String,
         required: true
@@ -40,9 +34,9 @@ const EventSchema = new Schema({
     },
     sponsors: [Schema.Types.ObjectId],
     createdBy: {
-        type: Schema.Types.ObjectId,
+        type: String, //TODO Schema.Types.ObjectId from User email
         ref: "User",
-        required: false //TODO
+        required: false //TODO true
         //TODO: ADD DEFAULT USER JUST IN CASE
     },
     image: {
