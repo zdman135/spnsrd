@@ -80,6 +80,7 @@ router.post("/login", (req, res) => {
           },
           (err, token) => {
             res.json({
+              id: payload.id,
               success: true,
               token: "Bearer " + token
             });
