@@ -5,27 +5,41 @@ import API from "../utils/API"
 class EventsLandingPage extends Component {
 
     state = {
-        name:"lab"
+        events: []
     };
 
- getEventCards = () => {
-    let events = API.getEvents().then(event => {
-        console.log (event.data)
-        this.setState({
-            events: event.data
-        })
-    })
- }
+    componentDidMount() {
+        this.getEventCards()
+    }
 
-componentDidMount() {
-    this.getEventCards()
-}
-                 
+    getEventCards = () => {
+        API.getEvents().then(event => {
+            this.setState({
+                events: event.data
+            })
+        })
+    }
+
     render() {
         return (
-          <EventCard
-            name={this.state.name}
-            />
+            <div>
+
+                {!this.state.events.length ? (
+                    <div />
+                ) : (
+                        this.state.events.map((event, index) => {
+                            return (
+                                <EventCard
+                                    key={index}
+                                    name={event.name}
+                                    shortText={event.shortText}
+                                    category={event.category}
+                                />
+                            );
+                        })
+
+                    )}
+            </div>
         );
     }
 }
