@@ -4,14 +4,13 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  // Link, not used yet, commented out for now to remove warning
   Redirect,
   Switch
 } from "react-router-dom";
 
 import NavBar from "./components/NavBar/navbar.js";
 import Event from "./components/Event";
-import EventCard from "./components/EventCard";
 import 'semantic-ui-css/semantic.min.css';
 
 import LandingPage from "./pages/LandingPage";
