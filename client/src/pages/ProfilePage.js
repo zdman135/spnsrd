@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import API from "../utils/API";
+// import API from "../utils/API"; TODO: use API
 import ProfileSegment from "../components/ProfileSegment";
 import ProfileImage from "../components/ProfileImage";
 

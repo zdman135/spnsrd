@@ -19,7 +19,7 @@ export default class NavBar extends Component {
               key={c}
               name={c}
               active={activeA === c}
-              color={c}
+              // color={c} TODO: fix styling prop
               onClick={this.handleAClick}
             />
           ))}
