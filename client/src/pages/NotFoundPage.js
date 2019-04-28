@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
-import ProfileSegment from "../components/ProfileSegment";
-import ProfileImage from "../components/ProfileImage";
 
 class NotFoundPage extends Component {
     render() {

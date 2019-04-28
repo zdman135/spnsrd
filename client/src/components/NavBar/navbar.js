@@ -19,7 +19,6 @@ export default class NavBar extends Component {
               key={c}
               name={c}
               active={activeA === c}
-              color={c}
               onClick={this.handleAClick}
             />
           ))}
