@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import EventForm from '../components/EventForm'
-import API from "../utils/API"
+import EventForm from '../components/EventForm';
+import API from "../utils/API";
+import AuthLogin from "../components/Auth/Login"; //TODO use to all AuthLogin.getProfile() for createdBy
 
 class CreateEventPage extends Component {
 

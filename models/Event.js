@@ -34,7 +34,7 @@ const EventSchema = new Schema({
     },
     sponsors: [Schema.Types.ObjectId],
     createdBy: {
-        type: String, //TODO Schema.Types.ObjectId from User email
+        type: Schema.Types.ObjectId, //TODO Schema.Types.ObjectId from User email
         ref: "User",
         required: false //TODO true
         //TODO: ADD DEFAULT USER JUST IN CASE
