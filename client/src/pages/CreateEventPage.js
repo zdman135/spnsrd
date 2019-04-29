@@ -13,7 +13,7 @@ class CreateEventPage extends Component {
         longText: "",
         category: "",
         isSponsored: false,
-        createdBy: "", //TODO determine how to turn user email into mongoose user ObjectID
+        createdBy: null, //TODO determine how to turn user email into mongoose user ObjectID
         image: ""
     };
 
@@ -65,7 +65,7 @@ class CreateEventPage extends Component {
             longText: "",
             category: "",
             isSponsored: false,
-            createdBy: "", //TODO determine how to turn user email into mongoose user ObjectID
+            createdBy: null, //TODO determine how to turn user email into mongoose user ObjectID
             image: ""
         });
     };
