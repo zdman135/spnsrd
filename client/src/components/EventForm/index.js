@@ -6,11 +6,13 @@ import {
   Header,
   Segment,
 } from 'semantic-ui-react';
+import categoryOptions from "../../utils/categoryOptions.js";
+import DropdownInput from "../DropdownInput";
 
 
 function EventForm(props) {
   return(
-    <Grid centered columns={2}>
+    <Grid centered columns={1}>
     <Grid.Column>
       <Header as="h2" textAlign="center">
         Please fill out the following form to create your event.
@@ -25,7 +27,7 @@ function EventForm(props) {
             name="name"
             onChange={props.handleInputChange}
           />
-           <Form.Input
+          <Form.Input
             fluid
             icon="calendar alternate outline"
             iconPosition="left"
@@ -33,8 +35,47 @@ function EventForm(props) {
             name="date"
             onChange={props.handleInputChange}
           />
+          <Form.Input
+            fluid
+            icon="map pin"
+            iconPosition="left"
+            placeholder="Location"
+            name="location"
+            onChange={props.handleInputChange}
+          />
+          <DropdownInput
+            placeholder="Select a Category"
+            name="category"
+            options={categoryOptions}
+            onChange={props.handleDropdownChange}
+          />
+          <br/>
+          <Form.Input
+            fluid
+            icon="quote left"
+            iconPosition="left"
+            placeholder="Short Description"
+            name="shortText"
+            onChange={props.handleInputChange}
+          />
+          <Form.Input
+            fluid
+            icon="file image outline"
+            iconPosition="left"
+            placeholder="Link to an Image"
+            name="image"
+            onChange={props.handleInputChange}
+          />
+          <Form.Input
+            fluid
+            icon="bars"
+            iconPosition="left"
+            placeholder="More Event Information"
+            name="longText"
+            onChange={props.handleInputChange}
+          />
 
-          <Button onClick={props.handleEventChange}color="purple" fluid size="large">
+          <Button onClick={props.handleCreateEvent}color="purple" fluid size="large">
             Create New Event!
           </Button>
         </Form>
