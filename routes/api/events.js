@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:eventId", (req, res) => {
-    if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
         Event.findOne({ '_id': req.params.eventId }).then(event => {
             if (!event) {
                 return res.status(404).json({ event: "Event was not found." });
@@ -18,7 +18,7 @@ router.get("/:eventId", (req, res) => {
             return res.status(200).json(event)
         });
     } else {
-        return res.status(404).json({ user: "Invalid Event Id was attempted" })
+        return res.status(404).json({ event: "Invalid Event Id was attempted" })
     }
 });
 
@@ -38,24 +38,24 @@ router.post("/createevent", (req, res) => {
 });
 
 router.put("/:eventId", (req, res) => {
-    if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
         Event.findOneAndUpdate(req.params.eventId, { $set: req.body }, (err, doc) => {
             if (err) return res.send(500, { error: err });
             return res.send("Event Successfully Saved");
         });
     } else {
-        return res.status(404).json({ user: "Invalid Event Id was attempted" })
+        return res.status(404).json({ event: "Invalid Event Id was attempted" })
     }
 });
 
 router.delete("/:eventId", (req, res) => {
-    if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
         Event.deleteOne({ '_id': req.params.eventId }, err => {
             if (err) return handleError(err);
             return res.send("Event Successfully Deleted.");
         });
     } else {
-        return res.status(404).json({ user: "Invalid Event Id was attempted" })
+        return res.status(404).json({ event: "Invalid Event Id was attempted" })
     }
 })
 
