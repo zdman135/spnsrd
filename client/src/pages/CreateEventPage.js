@@ -5,6 +5,14 @@ import AuthLogin from "../components/Auth/Login"; //TODO use to all AuthLogin.ge
 
 class CreateEventPage extends Component {
 
+    componentDidMount() {
+        let userProfile = AuthLogin.getProfile();
+        let userID = userProfile.id
+        this.setState(
+            {createdBy: userID} 
+        )
+    }
+
     state = {
         name: "",
         date: "",
