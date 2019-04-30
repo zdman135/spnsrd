@@ -34,15 +34,14 @@ const EventSchema = new Schema({
     },
     sponsors: [Schema.Types.ObjectId],
     createdBy: {
-        type: Schema.Types.ObjectId, //TODO Schema.Types.ObjectId from User email
+        type: Schema.Types.ObjectId, 
         ref: "User",
-        required: false //TODO true
-        //TODO: ADD DEFAULT USER JUST IN CASE
+        required: true
     },
     image: {
         type: String,
         required: true,
-        //TODO: ADD DEFAULT NO USER IMAGE
+        default: "https://www.aj-chambers.com/front/images/default-user.jpg"
       }
 
 }, {id: true});

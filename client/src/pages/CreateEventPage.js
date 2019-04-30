@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EventForm from '../components/EventForm';
 import API from "../utils/API";
-import AuthLogin from "../components/Auth/Login"; //TODO use to all AuthLogin.getProfile() for createdBy
+import AuthLogin from "../components/Auth/Login";
 
 class CreateEventPage extends Component {
 
@@ -21,7 +21,7 @@ class CreateEventPage extends Component {
         longText: "",
         category: "",
         isSponsored: false,
-        createdBy: null, //TODO determine how to turn user email into mongoose user ObjectID
+        createdBy: null,
         image: ""
     };
 
@@ -73,7 +73,7 @@ class CreateEventPage extends Component {
             longText: "",
             category: "",
             isSponsored: false,
-            createdBy: null, //TODO determine how to turn user email into mongoose user ObjectID
+            createdBy: null,
             image: ""
         });
     };
