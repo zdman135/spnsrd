@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API"
-import Login  from "../components/Login/Login";
+import Login  from "../components/Login";
 import AuthLogin from "../components/Auth/Login";
 class LandingPage extends Component {
 
