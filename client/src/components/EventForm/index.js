@@ -12,7 +12,7 @@ import DropdownInput from "../DropdownInput";
 
 function EventForm(props) {
   return(
-    <Grid centered columns={1}>
+    <Grid column>
     <Grid.Column>
       <Header as="h2" textAlign="center">
         Please fill out the following form to create your event.

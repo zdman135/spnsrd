@@ -1,0 +1,12 @@
+.registerCard {
+    background-image: url('./bgImage.jpg');
+}
+
+.cardColor {
+    background-image:url('./bgImage.jpg');
+}
+
+
+.ui.segment {
+    background-color: black;
+}

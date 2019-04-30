@@ -1,4 +1,5 @@
 import React from 'react';
+import './register.css'
 import {
   Button,
   Form,
@@ -11,10 +12,10 @@ import {
 
 function Register(props) {
   return(
-    <Grid centered columns={2}>
-    <Grid.Column>
-      <Header as="h2" textAlign="center">
-        Please follow the following steps.
+    <Grid className = 'registerCard' centered column={0}>
+    <Grid.Column className='cardColor'>
+      <Header as="h2" textAlign="center" className='color'>
+        getSPNSRD
       </Header>
       <Segment>
         <Form size="large">
