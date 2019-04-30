@@ -5,24 +5,32 @@ import API from "../utils/API"
 
 class UnsponsoredEventsPage extends Component {
 
+    state = {
+        events: []
+    }
+
     componentDidMount() {
-        // API.getEvents()
+        this.getEvents()
     }
 
     getEvents = _=> {
         API.getEvents().then(res => {
             console.log(res.data)
+            this.setState({events: res.data})
         }).catch(err => console.log(err))
     }
 
     render() {
         return (
             <Container>
-                <EventCard 
-                name="testEvent"
-                category="testCategory"
-                shortText="test shortText"
-                isSponsored={false} />
+               {this.state.events.map(event => {
+                   return (<EventCard
+                   name={event.name}
+                   category={event.category}
+                   shortText={event.shortText}
+                   isSponsored={event.isSponsored}
+                   />)
+               })}
             </Container>
         )
     }
