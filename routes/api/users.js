@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
@@ -8,8 +9,8 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-// Load User model
 const User = require("../../models/User");
+const Event = require("../../models/Event");
 
 // endpoint to register users
 router.post("/register", (req, res) => {
@@ -95,29 +96,38 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.get("/:email", (req, res) => {
-  let email = req.params.email
-  email = decodeURIComponent(email);
+router.get("/:userId", (req, res) => {
+  if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    User.findOne({ '_id': req.params.userId }).then(user => {
+      if (!user) {
+        return res.status(404).json({ user: "User was not found" });
+      }
+      return res.status(200).json(user)
+    });
+  } else {
+    return res.status(404).json({ user: "Invalid User Id was attempted" })
+  }
+});
 
-  User.findOne({ email: email }).then(user => {
-    if (!user) {
-      return res.status(404).json({ user: "User was not found" });
-    }
-    return res.status(200).json(user)
-  });
+router.get("/:userId/events", (req, res) => {
+  if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    Event.find({ 'createdBy': req.params.userId }).then(event => {
+      return res.status(200).json(event)
+    })
+  } else {
+    return res.status(404).json({ user: "Invalid User Id was attempted" })
+  }
+});
 
-})
-
-router.put("/:email", (req, res) => {
-
-  let findEmail = { 'email': req.params.email };
-  findEmail = decodeURIComponent(findEmail);
-  
-  User.findOneAndUpdate(findEmail, { $set:  req.body }, function (err, doc) {
-    if (err) return res.send(500, { error: err });
-    return res.send("User data succesfully saved.");
-  });
-
+router.put("/:userId", (req, res) => {
+  if (mongoose.Types.ObjectId.isValid(req.params.userId)) {
+    User.findOneAndUpdate({ '_id': req.params.userId }, { $set: req.body }, function (err, doc) {
+      if (err) return res.send(500, { error: err });
+      return res.send("User data succesfully saved.");
+    });
+  } else {
+    return res.status(404).json({ user: "Invalid User Id was attempted" })
+  }
 });
 
 module.exports = router;

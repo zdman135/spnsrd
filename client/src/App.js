@@ -21,6 +21,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 
 import AuthLogin from "./components/Auth/Login";
+import EventsLandingPage from "./pages/EventsLandingPage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -43,6 +44,7 @@ function App() {
           <PrivateRoute exact path="/event" component={EventProfilePage} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
+          <PrivateRoute exact path="/events" component={EventsLandingPage} />
           <Route path="/event/:id" component={EventProfilePage} />
           <Route component={NotFoundPage} />
         </Switch>

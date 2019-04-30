@@ -8,11 +8,11 @@ export default {
     register: function(register) {
         return axios.post("/api/users/register", register);
     },
-    getOneUserByEmail: function(user) {
-        return axios.get(`/api/users/${user}`);
+    getUserById: function(userId) {
+        return axios.get(`/api/users/${userId}`);
     },
-    updateUserByEmail: function(email, updateUserData) {
-        return axios.put(`/api/users/${email}`, updateUserData);
+    updateUserById: function(userId, updateUserData) {
+        return axios.put(`/api/users/${userId}`, updateUserData);
     },
 
     // Event Routes
@@ -21,6 +21,9 @@ export default {
     },
     getEventById: function(eventId) {
         return axios.get(`/api/events/${eventId}`)
+    },
+    getEventsWithUserId: function(userId) {
+        return axios.get(`/api/users/${userId}/events`)
     },
     createEvent: function(event) {
         return axios.post("/api/events/createevent", event);
