@@ -33,5 +33,14 @@ export default {
     },
     deleteEventById: function(eventId) {
         return axios.delete(`/api/events/${eventId}`)
+    },
+    getEventsByStatus: function(type) {
+        return axios.get(`/api/events?sponsorship=${type}`)
+    },
+    getEventsByStatus: function(category){
+        return axios.get(`/api/events?category=${category}`)
+    },
+    getEventsOneWeekAdvanced: function(){
+        return axios.get('/api/events/?date=1week')
     }
 };
