@@ -38,6 +38,9 @@ export default {
         return axios.get(`/api/events?sponsorship=${type}`)
     },
     getEventsByStatus: function(category){
-        return axios.get(`api/events?category=${category}`)
+        return axios.get(`/api/events?category=${category}`)
     },
+    getEventsOneWeekAdvanced: function(){
+        return axios.get('/api/events/?date=1week')
+    }
 };

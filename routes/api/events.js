@@ -16,6 +16,13 @@ router.get("/", (req, res) => {
         Event.find({ 'category': category }).then(event => {
             return res.status(200).json(event)
         })
+    } else if (req.query.date === '1week') {
+        Event.find({ 'date': {
+            $gte: Date.now(),
+            $lte: Date.now() + 6.04e+8} 
+        }).then(event => {
+            return res.status(200).json(event)
+        })
     } else {
         Event.find({}, (err, events) => {
             res.send(events)
@@ -38,6 +45,7 @@ router.get("/:eventId", (req, res) => {
 
 router.post("/createevent", (req, res) => {
     const newEvent = new Event({
+        date: req.body.date,
         name: req.body.name,
         location: req.body.location,
         shortText: req.body.shortText,
@@ -53,7 +61,7 @@ router.post("/createevent", (req, res) => {
 
 router.put("/:eventId", (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
-        Event.findOneAndUpdate(req.params.eventId, { $set: req.body }, (err, doc) => {
+        Event.findOne({ _id: req.params.eventId }, { $set: req.body }, (err, doc) => {
             if (err) return res.send(500, { error: err });
             return res.send("Event Successfully Saved");
         });
@@ -72,5 +80,6 @@ if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
         return res.status(404).json({ event: "Invalid Event Id was attempted" })
     }
 })
+
 
 module.exports = router;
