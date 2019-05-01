@@ -6,27 +6,24 @@ import API from '../utils/API';
 
 class EventProfile extends Component {
     
+    state = {
+        eventData: {}
+    }
 
     componentDidMount() {
         let splitLoc = this.props.location.pathname.split("/")
         console.log(splitLoc[2] , "location")
         let location = splitLoc[2]
-        this.setState({
-            _id: location
-        })
-        // this.getEventById()
-
+        this.getEventById(location)
     }
 
-    state = {
-        _id: ""
-    }
 
-    getEventById = _=> {
-        API.getEventById({
-             _id: this.state.id
-        }).then(res => {
+    getEventById = id => {
+        API.getEventById(id).then(res => {
             console.log(res.data)
+            this.setState({
+                eventData: res.data
+            })
         }).catch(err => console.log(err));
     }
 
@@ -34,15 +31,15 @@ class EventProfile extends Component {
     render() {
         return (
             <Container>
-                <ProfileImage info="https://www.aj-chambers.com/front/images/default-user.jpg"/>
-                <ProfileSegment info="Sponsorship Status"/>
-                <ProfileSegment info="Name"/>
-                <ProfileSegment info="Date"/>
-                <ProfileSegment info="Location"/>
-                <ProfileSegment info="ShortText"/>
-                <ProfileSegment info="LongText"/>
-                <ProfileSegment info="Category"/>
-                <ProfileSegment info="CreatedBy User"/>
+                <ProfileImage info={this.state.eventData.image}/>
+                <ProfileSegment info={this.state.eventData.isSponsored}/>
+                <ProfileSegment info={this.state.eventData.name}/>
+                <ProfileSegment info={this.state.eventData.date}/>
+                <ProfileSegment info={this.state.eventData.location}/>
+                <ProfileSegment info={this.state.eventData.shortText}/>
+                <ProfileSegment info={this.state.eventData.longText}/>
+                <ProfileSegment info={this.state.eventData.category}/>
+                <ProfileSegment info={this.state.eventData.image}/>
                 {/* TODO: Add Similar EventCard Container Using Get Events by Category Route */}
             </Container>
         )
