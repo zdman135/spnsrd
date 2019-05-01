@@ -52,7 +52,7 @@ router.post("/createevent", (req, res) => {
         longText: req.body.longText,
         category: req.body.category,
         isSponsored: req.body.isSponsored,
-        createdBy: req.body.email,
+        createdBy: req.body.userId,
         image: req.body.image
     });
 
@@ -61,7 +61,7 @@ router.post("/createevent", (req, res) => {
 
 router.put("/:eventId", (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
-        Event.findOne({ _id: req.params.eventId }, { $set: req.body }, (err, doc) => {
+        Event.findOneAndUpdate({ '_id': req.params.eventId }, { $set: req.body }, (err, doc) => {
             if (err) return res.send(500, { error: err });
             return res.send("Event Successfully Saved");
         });
