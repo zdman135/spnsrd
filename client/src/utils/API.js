@@ -33,5 +33,8 @@ export default {
     },
     deleteEventById: function(eventId) {
         return axios.delete(`/api/events/${eventId}`)
+    },
+    getEventsByStatus: function(type) {
+        return axios.get(`/api/events?sponsorship=${type}`)
     }
 };

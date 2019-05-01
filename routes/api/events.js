@@ -4,9 +4,17 @@ const router = express.Router();
 const Event = require("../../models/Event");
 
 router.get("/", (req, res) => {
-    Event.find({}, (err, events) => {
-        res.send(events)
-    });
+    if (req.query.sponsorship !== undefined) {
+        let isSponsored = req.query.sponsorship
+
+        Event.find({ 'isSponsored': isSponsored }).then(event => {
+            return res.status(200).json(event)
+        })
+    } else {
+        Event.find({}, (err, events) => {
+            res.send(events)
+        });
+    }
 });
 
 router.get("/:eventId", (req, res) => {
