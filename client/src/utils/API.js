@@ -36,5 +36,8 @@ export default {
     },
     getEventsByStatus: function(type) {
         return axios.get(`/api/events?sponsorship=${type}`)
-    }
+    },
+    getEventsByStatus: function(category){
+        return axios.get(`api/events?category=${category}`)
+    },
 };

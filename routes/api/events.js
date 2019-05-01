@@ -10,6 +10,12 @@ router.get("/", (req, res) => {
         Event.find({ 'isSponsored': isSponsored }).then(event => {
             return res.status(200).json(event)
         })
+    } else if (req.query.category !== undefined) {
+        let category = req.query.category
+
+        Event.find({ 'category': category }).then(event => {
+            return res.status(200).json(event)
+        })
     } else {
         Event.find({}, (err, events) => {
             res.send(events)
