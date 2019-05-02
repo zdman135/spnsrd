@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import EventForm from '../components/EventForm';
 import API from "../utils/API";
 import AuthLogin from "../components/Auth/Login";
@@ -7,11 +8,11 @@ class CreateEventPage extends Component {
 
     componentDidMount() {
         let userProfile = AuthLogin.getProfile();
-        let userID = userProfile.id
+        let userID = userProfile.id;
         this.setState(
             {createdBy: userID} 
-        )
-    }
+        );
+    };
 
     state = {
         name: "",
@@ -22,8 +23,16 @@ class CreateEventPage extends Component {
         category: "",
         isSponsored: false,
         createdBy: null,
-        image: ""
+        image: "",
+        eventCreated: false
     };
+
+    setRedirect =  _=> {
+        this.setState({
+          eventCreated: true
+        });
+    };
+
 
     createEvent = _=> {
         API.createEvent({
@@ -38,9 +47,12 @@ class CreateEventPage extends Component {
           })
             .then(res => {
               console.log(res.data)
+            }).then( _=> {
+                console.log("redirecting...");
+                this.setRedirect();
             })
             .catch(err => console.log(err));
-    }
+    };
 
     handleDropdownChange = (event , data) => {
         let value = data.value;
@@ -63,7 +75,7 @@ class CreateEventPage extends Component {
     handleCreateEvent = event => {
         event.preventDefault();
 
-        this.createEvent()
+        this.createEvent();
 
         this.setState({
             name: "",
@@ -73,14 +85,15 @@ class CreateEventPage extends Component {
             longText: "",
             category: "",
             isSponsored: false,
-            createdBy: null,
             image: ""
         });
     };
 
     render() {
         return (
-            <EventForm
+            (this.state.eventCreated) 
+           ? <Redirect to={`/profile/${this.state.createdBy}`} />
+           : <EventForm
             name={this.state.name}
             date={this.state.date}
             location={this.state.location}
@@ -93,7 +106,7 @@ class CreateEventPage extends Component {
             handleDropdownChange={this.handleDropdownChange}
              />
         );
-    }
-}
+    };
+};
 
 export default CreateEventPage;
