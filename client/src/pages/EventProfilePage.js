@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Button } from 'semantic-ui-react';
 import ProfileSegment from "../components/ProfileSegment";
 import ProfileImage from "../components/ProfileImage";
+import AuthLogin from "../components/Auth/Login";
 import API from '../utils/API';
 
 class EventProfile extends Component {
@@ -27,6 +28,16 @@ class EventProfile extends Component {
         }).catch(err => console.log(err));
     }
 
+    handleBtnClick = event => {
+        let splitLoc = this.props.location.pathname.split("/")
+        let location = splitLoc[2]
+        let userProfile = AuthLogin.getProfile();
+        let userID = userProfile.id
+        API.updateEventById(location, {isSponsored: true}).then(res => {
+            console.log(res.data)
+        }).catch(err => console.log(err))
+    }
+
 
     render() {
         return (
@@ -40,6 +51,7 @@ class EventProfile extends Component {
                 <ProfileSegment info={this.state.eventData.longText}/>
                 <ProfileSegment info={this.state.eventData.category}/>
                 <ProfileSegment info={this.state.eventData.image}/>
+                <Button id="sponsorBtn" onClick={this.handleBtnClick} >Sponsor this event!</Button>
                 {/* TODO: Add Similar EventCard Container Using Get Events by Category Route */}
             </Container>
         )

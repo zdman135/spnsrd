@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 
 app.use("/api/users", users);
 app.use("/api/events", events);
