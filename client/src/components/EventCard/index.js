@@ -3,7 +3,7 @@ import { Container, Card, Image, Icon } from 'semantic-ui-react'
 
 const EventCardContainer = (props) => (
     <Container>
-        <Card href="#">
+        <Card href={`/event/${props.location}`}>
             <Image alt="cardImg" src="https://www.aj-chambers.com/front/images/default-user.jpg"/>
             <Card.Content>
                 <Card.Header>{props.name}</Card.Header>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import API from "../utils/API"
+import { Redirect } from 'react-router-dom';
+import API from "../utils/API";
 import Login  from "../components/Login";
 import AuthLogin from "../components/Auth/Login";
 class LandingPage extends Component {
@@ -43,7 +44,9 @@ class LandingPage extends Component {
                  
     render() {
         return (
-          <Login
+            (AuthLogin.loggedIn()) 
+            ? <Redirect to="/unsponsored" />
+            : <Login
             username={this.state.username}
             password={this.state.password}
             handleInputChange={this.handleInputChange}
