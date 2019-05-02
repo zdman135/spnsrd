@@ -8,28 +8,11 @@ class UnsponsoredEventsPage extends Component {
 
     state = {
         events: [],
-        redirect: false,
-        redirectLoc: ""
     };
 
     componentDidMount() {
         this.getEvents();
     };
-
-    setRedirect =  _=> {
-        let splitLoc = this.props.location.pathname.split("/")
-        console.log(splitLoc[2] , "location")
-        let location = splitLoc[2]
-        
-        this.setState({
-          redirect: true,
-          redirectLoc: location
-        });
-    };
-
-    setLocation = event => {
-        console.log(event , "setLoc event")
-    }
 
     getEvents = _=> {
         API.getEvents().then(res => {
@@ -40,9 +23,7 @@ class UnsponsoredEventsPage extends Component {
 
     render() {
         return (
-            (this.state.redirect) 
-           ? <Redirect to={`/event/${this.state.redirectLoc}`} />
-           : <Container>
+            <Container>
                {this.state.events.map(event => {
                    return (<EventCard
                    key={event._id}
