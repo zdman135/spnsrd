@@ -5,19 +5,20 @@ import {
   Grid,
   Header,
   Segment,
+  Container,
 } from 'semantic-ui-react';
 import categoryOptions from "../../utils/categoryOptions.js";
 import DropdownInput from "../DropdownInput";
 
-
 function EventForm(props) {
   return(
-    <Grid column>
-    <Grid.Column>
-      <Header as="h2" textAlign="center">
+    
+    <Grid centered column={'3'}>
+    <Grid.Column  >
+      <Header as="h2" textAlign="center" centered>
         Please fill out the following form to create your event.
       </Header>
-      <Segment>
+      <Segment >
         <Form size="large">
           <Form.Input
             fluid

@@ -2,7 +2,7 @@ import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
 const DropdownInput = props => (
-  <Dropdown
+  <Dropdown 
     placeholder={props.placeholder}
     icon="dropdown"
     fluid

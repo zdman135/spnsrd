@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import './navbar.css'
 const colorsA = ['Homepage', 'Login', 'Sign Up', 'About Us']
 
 export default class NavBar extends Component {
@@ -13,7 +12,7 @@ export default class NavBar extends Component {
 
     return (
       <div >
-        <Menu inverted style={{backgroundColor: 'black'}}>
+        <Menu inverted style={{backgroundColor: 'purple'}}>
           {colorsA.map((c) => (
             <Menu.Item
               key={c}

@@ -9,7 +9,7 @@ const extra = (
 )
 
 const EventsCard = (props) => (
-  <Card
+  <Card 
     header={props.name}
     meta={props.category}
     description={props.shortText}
