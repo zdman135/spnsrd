@@ -4,7 +4,7 @@ import { Container, Card, Image, Icon } from 'semantic-ui-react'
 const EventCardContainer = (props) => (
     <Container  className="card" style={{width: 500}}>
         <Card href={`/event/${props.location}`} style = {{backgroundColor: 'purple'}}>
-            <Image alt="cardImg" src="https://www.aj-chambers.com/front/images/default-user.jpg"/>
+            <Image className="image" alt="cardImg" src="https://www.aj-chambers.com/front/images/default-user.jpg"/>
             <Card.Content>
                 <Card.Header style={{color: 'white'}}>{props.name}</Card.Header>
                 <Card.Meta style={{color: 'white'}}>

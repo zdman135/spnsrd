@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import API from "../utils/API";
-import Login  from "../components/Login";
-import AuthLogin from "../components/Auth/Login";
+import API from "../../utils/API";
+import Login  from "../../components/Login";
+import AuthLogin from "../../components/Auth/Login";
 class LandingPage extends Component {
 
     state = {

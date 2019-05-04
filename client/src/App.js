@@ -12,9 +12,12 @@ import {
 import NavBar from "./components/NavBar";
 import 'semantic-ui-css/semantic.min.css';
 
-import { CreateEventPage, EventProfilePage } from './pages'
+import {
+  CreateEventPage,
+  EventProfilePage
+} from './pages'
 
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
