@@ -12,11 +12,11 @@ import {
 import NavBar from "./components/NavBar";
 import 'semantic-ui-css/semantic.min.css';
 
+import { CreateEventPage, EventProfilePage } from './pages'
+
 import LandingPage from "./pages/LandingPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
-import CreateEventPage from "./pages/CreateEventPage";
-import EventProfilePage from "./pages/EventProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 
@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/login" component={LandingPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
-          <PrivateRoute exact path="/event" component={EventProfilePage} />
+          {/* <PrivateRoute exact path="/event" component={EventProfilePage} /> */}
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
           <PrivateRoute exact path="/events" component={EventsLandingPage} />

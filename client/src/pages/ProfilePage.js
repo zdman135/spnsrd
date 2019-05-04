@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Image, Segment } from 'semantic-ui-react';
 import API from "../utils/API";
+import './ProfilePage.css'
 // import AuthLogin from "../components/Auth/Login"; TODO use
-import ProfileSegment from "../components/ProfileSegment";
-import ProfileImage from "../components/ProfileImage";
+// import ProfileSegment from "../components/ProfileSegment";
+// import ProfileImage from "../components/ProfileImage";
 
 class ProfilePage extends Component {
 
@@ -30,12 +31,12 @@ class ProfilePage extends Component {
 
     render() {
         return (
-            <Container>
-                <ProfileImage info={this.state.userData.image}/>
-                <ProfileSegment info={this.state.userData.name}/>
-                <ProfileSegment info={this.state.userData.age}/>
-                <ProfileSegment info={this.state.userData.shortText}/>
-                {/* TODO: Add EventCard Container */}
+            <Container className="profile">
+                {/* <Image className="profile-image" src={this.state.userData.image} alt="profileImg"/> */}
+                <Image className="profile-image" src="https://content-static.upwork.com/uploads/2014/10/01073435/profilephoto5.jpg" alt="profileImg"/>
+                <Segment>{this.state.userData.name}</Segment>
+                <Segment>{this.state.userData.age}</Segment>
+                <Segment>{this.state.userData.shortText}</Segment>
             </Container>
         )
     }

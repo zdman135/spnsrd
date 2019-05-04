@@ -35,6 +35,7 @@ if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
 if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
+  console.log(errors)
 return {
     errors,
     isValid: isEmpty(errors)

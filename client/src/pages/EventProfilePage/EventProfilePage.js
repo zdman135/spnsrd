@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Button } from 'semantic-ui-react';
-import ProfileSegment from "../components/ProfileSegment";
-import ProfileImage from "../components/ProfileImage";
-import ProfileStatusSegment from "../components/ProfileStatusSegment";
-import AuthLogin from "../components/Auth/Login";
-import API from '../utils/API';
+import { Container, Button, Segment, Image } from 'semantic-ui-react';
+import ProfileStatusSegment from "../../components/ProfileStatusSegment";
+import AuthLogin from "../../components/Auth/Login";
+import API from '../../utils/API';
 
 class EventProfile extends Component {
     
@@ -43,15 +41,18 @@ class EventProfile extends Component {
     render() {
         return (
             <Container>
-                <ProfileImage info={this.state.eventData.image}/>
+                {/* <ProfileImage info={this.state.eventData.image}/> */}
                 <ProfileStatusSegment info={this.state.eventData.isSponsored}/>
-                <ProfileSegment info={this.state.eventData.name}/>
-                <ProfileSegment info={this.state.eventData.date}/>
-                <ProfileSegment info={this.state.eventData.location}/>
-                <ProfileSegment info={this.state.eventData.shortText}/>
-                <ProfileSegment info={this.state.eventData.longText}/>
-                <ProfileSegment info={this.state.eventData.category}/>
-                <ProfileSegment info={this.state.eventData.image}/>
+
+                <Image className="profile-image" src={this.state.eventData.image} alt="profileImg"/>
+                <Segment>{this.state.eventData.name}</Segment>
+                <Segment>{this.state.eventData.date}</Segment>
+                <Segment>{this.state.eventData.location}</Segment>
+                <Segment>{this.state.eventData.shortText}</Segment>
+                <Segment>{this.state.eventData.longText}</Segment>
+                <Segment>{this.state.eventData.category}</Segment>
+                <Segment>{this.state.eventData.image}</Segment>
+
                 <Button id="sponsorBtn" onClick={this.handleBtnClick} >Sponsor this event!</Button>
                 {/* TODO: Add Similar EventCard Container Using Get Events by Category Route */}
             </Container>

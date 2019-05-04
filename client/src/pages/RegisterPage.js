@@ -22,6 +22,7 @@ class RegisterPage extends Component {
     };
 
     register = () => {
+        console.log(this.state)
         API.register({
             name: this.state.name,
             email: this.state.email,

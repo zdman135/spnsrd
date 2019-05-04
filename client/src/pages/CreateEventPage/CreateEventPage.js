@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import EventForm from '../components/EventForm';
-import API from "../utils/API";
-import AuthLogin from "../components/Auth/Login";
+import EventForm from '../../components/EventForm';
+import API from "../../utils/API";
+import AuthLogin from "../../components/Auth/Login";
 
 class CreateEventPage extends Component {
 

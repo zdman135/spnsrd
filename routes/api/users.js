@@ -14,9 +14,10 @@ const Event = require("../../models/Event");
 
 // endpoint to register users
 router.post("/register", (req, res) => {
+  console.log(req.body)
   // Form Validation
   const { errors, isValid } = validateRegisterInput(req.body);
-
+  console.log(isValid)
   // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
