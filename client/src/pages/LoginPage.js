@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from "../utils/API";
 import Login from "../components/Login";
-import AuthLogin from "../components/Auth/Login";
+import Auth from "../utils/Auth";
 
 class LoginPage extends Component {
 
@@ -13,7 +13,7 @@ class LoginPage extends Component {
     };
 
     componentDidMount() {
-        if (AuthLogin.loggedIn()) {
+        if (Auth.loggedIn()) {
             this.setState({ isLoggedIn: true });
         }
     };
@@ -25,7 +25,7 @@ class LoginPage extends Component {
         })
             .then(res => {
                 console.log(res.data)
-                AuthLogin.setToken(res.data.token);
+                Auth.setToken(res.data.token);
                 this.setState({ isLoggedIn: true })
             })
             .catch(err => console.log(err));
@@ -53,7 +53,7 @@ class LoginPage extends Component {
 
     render() {
         return (
-            (AuthLogin.loggedIn())
+            (Auth.loggedIn())
                 ? <Redirect to="/unsponsored" />
                 : <Login
                     username={this.state.username}

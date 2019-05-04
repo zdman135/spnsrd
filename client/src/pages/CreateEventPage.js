@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import EventForm from '../components/EventForm';
 import API from "../utils/API";
-import AuthLogin from "../components/Auth/Login";
+import Auth from "../utils/Auth";
 
 class CreateEventPage extends Component {
 
     componentDidMount() {
-        let userProfile = AuthLogin.getProfile();
+        let userProfile = Auth.getProfile();
         let userID = userProfile.id;
         this.setState(
             {createdBy: userID} 
