@@ -1,30 +1,46 @@
-import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import AuthLogin from "../Auth/Login";
 
-const colorsA = ['Homepage', 'Login', 'Sign Up', 'About Us']
+let userID = "test";
+
+if (AuthLogin.loggedIn()) {
+  let userProfile = AuthLogin.getProfile();
+  userID = userProfile.id
+} else {
+  userID = "";
+}
+
+const pageArr = ['Browse Events', 'Create Event', 'Profile'];
+const linkArr = ["/unsponsored" , "/createevent" , `/profile/${userID}`]
 
 export default class NavBar extends Component {
-  state = { activeA: colorsA[0]}
+  state = { 
+    activePage: pageArr[0],
+    userID: ""
+   };
 
-  handleAClick = (e, { name }) => this.setState({ activeA: name })
+  handleNavClick = (event, { name }) => this.setState({ activePage: name });
 
   render() {
-    const { activeA} = this.state
+    const { activePage } = this.state;
 
     return (
       <div>
         <Menu inverted>
-          {colorsA.map((c) => (
+          {pageArr.map((page , index) => (
             <Menu.Item
-              key={c}
-              name={c}
-              active={activeA === c}
-              // color={c} TODO: fix styling prop
-              onClick={this.handleAClick}
+              as={Link}
+              to={linkArr[index]}
+              key={page}
+              name={page}
+              active={activePage === page}
+              onClick={this.handleNavClick}
             />
-          ))}
+          ))};
         </Menu>
       </div>
-    )
-  }
-}
+    );
+  };
+};
