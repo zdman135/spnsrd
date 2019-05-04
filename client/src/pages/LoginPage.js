@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from "../utils/API";
-import Login  from "../components/Login";
+import Login from "../components/Login";
 import AuthLogin from "../components/Auth/Login";
 
 class LoginPage extends Component {
 
     state = {
         username: "",
-        password: ""
+        password: "",
+        isLoggedIn: false
+    };
+
+    componentDidMount() {
+        if (AuthLogin.loggedIn()) {
+            this.setState({ isLoggedIn: true });
+        }
     };
 
     login = () => {
         API.login({
             email: this.state.username,
             password: this.state.password
-          })
+        })
             .then(res => {
-              console.log(res.data)
-              AuthLogin.setToken(res.data.token);
+                console.log(res.data)
+                AuthLogin.setToken(res.data.token);
+                this.setState({ isLoggedIn: true })
             })
             .catch(err => console.log(err));
     }
@@ -42,17 +50,17 @@ class LoginPage extends Component {
             password: ""
         });
     };
-                 
+
     render() {
         return (
-            (AuthLogin.loggedIn()) 
-            ? <Redirect to="/unsponsored" />
-            : <Login
-            username={this.state.username}
-            password={this.state.password}
-            handleInputChange={this.handleInputChange}
-            handleLogin={this.handleLogin}
-            />
+            (AuthLogin.loggedIn())
+                ? <Redirect to="/unsponsored" />
+                : <Login
+                    username={this.state.username}
+                    password={this.state.password}
+                    handleInputChange={this.handleInputChange}
+                    handleLogin={this.handleLogin}
+                />
         );
     }
 }
