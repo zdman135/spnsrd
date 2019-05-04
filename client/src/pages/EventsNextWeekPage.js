@@ -3,18 +3,18 @@ import { Container } from 'semantic-ui-react';
 import EventCard from "../components/EventCard";
 import API from "../utils/API";
 
-class UnsponsoredEventsPage extends Component {
+class EventsNextWeekPage extends Component {
 
     state = {
         events: [],
     };
 
     componentDidMount() {
-        this.getEvents();
+        this.getEventsOneWeekAdvanced();
     };
 
-    getEvents = _=> {
-        API.getEvents().then(res => {
+    getEventsOneWeekAdvanced = _=> {
+        API.getEventsOneWeekAdvanced().then(res => {
             console.log(res.data)
             this.setState({events: res.data})
         }).catch(err => console.log(err));
@@ -39,4 +39,4 @@ class UnsponsoredEventsPage extends Component {
     };
 };
 
-export default UnsponsoredEventsPage;
+export default EventsNextWeekPage;
