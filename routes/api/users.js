@@ -130,4 +130,11 @@ router.put("/:userId", (req, res) => {
   }
 });
 
+router.get("/", (req, res) => {
+    User.find({ }, function (err, user) {
+      if (err) return res.send(500, { error: err });
+      return res.status(200).json(user)
+    });  
+});
+
 module.exports = router;
