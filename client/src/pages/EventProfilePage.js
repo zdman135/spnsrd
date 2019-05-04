@@ -6,7 +6,9 @@ import ProfileStatusSegment from "../components/ProfileStatusSegment";
 import AuthLogin from "../components/Auth/Login";
 import API from '../utils/API';
 
+let userID;
 class EventProfile extends Component {    
+
     state = {
         eventData: {},
         userIdsOfSponsored: [],
@@ -24,7 +26,7 @@ class EventProfile extends Component {
         API.getEventById(id).then(res => {
             this.setState({ eventData: res.data })
             this.setState({ userIdsOfSponsored: res.data.sponsors })
-            let userID = AuthLogin.getProfile().id;
+            userID = AuthLogin.getProfile().id;
             if (this.state.userIdsOfSponsored.includes(userID)) {
                 this.setState({ sponsored: true })
             }
@@ -36,7 +38,6 @@ class EventProfile extends Component {
     handleBtnClick = event => {
         event.preventDefault();
         let location = this.props.location.pathname.split("/")[2]
-        let userID = AuthLogin.getProfile().id;
         
         if(!this.state.userIdsOfSponsored.includes(userID)) {
             API.updateEventById(location, {
@@ -65,7 +66,7 @@ class EventProfile extends Component {
                 {this.state.sponsored ? (
                     <Button disabled>Event Sponsored!</Button>
               ) : (
-                <Button id="sponsorBtn" onClick={this.handleBtnClick} >Sponsor this event!</Button>
+                <Button id="sponsorBtn" onClick={this.handleBtnClick} >Sponsor This Event!</Button>
               )}
                 {/* TODO: Add Similar EventCard Container Using Get Events by Category Route */}
             </Container>
