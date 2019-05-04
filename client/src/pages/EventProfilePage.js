@@ -19,6 +19,7 @@ class EventProfile extends Component {
         let location = splitLoc[2]
         this.getEventById(location)
     }
+    
     getEventById = id => {
         API.getEventById(id).then(res => {
             this.setState({ eventData: res.data })
