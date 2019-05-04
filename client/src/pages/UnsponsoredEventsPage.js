@@ -28,6 +28,7 @@ class UnsponsoredEventsPage extends Component {
                    return (<EventCard
                    key={event._id}
                    name={event.name}
+                   image={event.image}
                    category={event.category}
                    shortText={event.shortText}
                    isSponsored={event.isSponsored}
