@@ -52,7 +52,7 @@ router.post("/createevent", (req, res) => {
         longText: req.body.longText,
         category: req.body.category,
         isSponsored: req.body.isSponsored,
-        createdBy: req.body.userId,
+        createdBy: req.body.createdBy,
         image: req.body.image
     });
 

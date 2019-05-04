@@ -22,6 +22,7 @@ import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 
 import AuthLogin from "./components/Auth/Login";
 import EventsLandingPage from "./pages/EventsLandingPage";
+import LoginPage from "./pages/LoginPage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -38,7 +39,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={LandingPage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
           <PrivateRoute exact path="/event" component={EventProfilePage} />

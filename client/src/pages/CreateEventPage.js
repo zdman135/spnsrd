@@ -42,7 +42,7 @@ class CreateEventPage extends Component {
             longText: this.state.longText,
             category: this.state.category,
             isSponsored: this.state.isSponsored,
-            userId: this.state.createdBy,
+            createdBy: this.state.createdBy,
             image: this.state.image
           })
             .then(res => {
