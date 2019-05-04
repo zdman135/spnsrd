@@ -24,6 +24,8 @@ import EventsNextWeekPage from "./pages/EventsNextWeekPage";
 import AuthLogin from "./components/Auth/Login";
 import EventsLandingPage from "./pages/EventsLandingPage";
 import LoginPage from "./pages/LoginPage";
+import Jumbotron from "./components/Jumbotron";
+//import Benefits from "/.Benefits/"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -40,6 +42,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/Jumbotron" component={Jumbotron} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
