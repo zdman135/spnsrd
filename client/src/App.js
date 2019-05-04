@@ -20,6 +20,7 @@ import EventProfilePage from "./pages/EventProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 import EventsNextWeekPage from "./pages/EventsNextWeekPage";
+import EventsByCategoryPage from "./pages/EventsByCategoryPage";
 
 import AuthLogin from "./components/Auth/Login";
 import EventsLandingPage from "./pages/EventsLandingPage";
@@ -44,6 +45,7 @@ function App() {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
           <Route exact path="/nextweek" component={EventsNextWeekPage} />
+          <Route exact path="/category" component={EventsByCategoryPage} />
           <PrivateRoute exact path="/event" component={EventProfilePage} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
