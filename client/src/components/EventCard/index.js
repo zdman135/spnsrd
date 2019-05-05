@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Card, Image, Icon } from 'semantic-ui-react'
 
 const EventCardContainer = (props) => (
-    <Container>
+    <Container className="column">
         <Card href={`/event/${props.location}`}>
             <Image alt="cardImg" src={props.image}/>
             <Card.Content>

@@ -22,7 +22,7 @@ class UnsponsoredEventsPage extends Component {
 
     render() {
         return (
-            <Container>
+            <Container className="three column doubling centered grid container">
                {this.state.events.map(event => {
                    return (<EventCard
                    key={event._id}
