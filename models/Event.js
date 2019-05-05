@@ -32,7 +32,7 @@ const EventSchema = new Schema({
         default: false,
         required: true
     },
-    sponsors: [Schema.Types.ObjectId],
+    sponsors: [String],
     createdBy: {
         type: Schema.Types.ObjectId, 
         ref: "User",

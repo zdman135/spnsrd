@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EventCard from "../components/EventCard/eventCard"
-import API from "../utils/API"
+import EventCard from "../components/EventCard/";
+import API from "../utils/API";
 
 class EventsLandingPage extends Component {
 
@@ -9,10 +9,10 @@ class EventsLandingPage extends Component {
     };
 
     componentDidMount() {
-        this.getEventCards()
+        this.getEvents()
     }
 
-    getEventCards = () => {
+    getEvents = () => {
         API.getEvents().then(event => {
             this.setState({
                 events: event.data
@@ -24,21 +24,24 @@ class EventsLandingPage extends Component {
         return (
             <div>
 
-                {!this.state.events.length ? (
-                    <div />
-                ) : (
+                {(!this.state.events.length) 
+                ? ( <div />) 
+                : (
                         this.state.events.map((event, index) => {
                             return (
                                 <EventCard
-                                    key={index}
-                                    name={event.name}
-                                    shortText={event.shortText}
-                                    category={event.category}
+                                key={index}
+                                name={event.name}
+                                image={event.image}
+                                category={event.category}
+                                shortText={event.shortText}
+                                isSponsored={event.isSponsored}
+                                location={event._id}
                                 />
                             );
                         })
 
-                    )}
+                    )};
             </div>
         );
     }

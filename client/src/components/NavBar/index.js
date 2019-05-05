@@ -1,27 +1,36 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import AuthLogin from "../Auth/Login";
+import Auth from "../../utils/Auth";
+import './NavBar.css'
 
-let userID = "test";
+let userID = "";
 
-if (AuthLogin.loggedIn()) {
-  let userProfile = AuthLogin.getProfile();
-  userID = userProfile.id
-} else {
-  userID = "";
+if (Auth.loggedIn()) {
+  userID = Auth.getProfile().id
 }
 
-const pageArr = ['Browse Events', 'Create Event', 'Profile'];
-const linkArr = ["/unsponsored" , "/createevent" , `/profile/${userID}`]
+const profileLink = `/profile/${userID}`
 
 export default class NavBar extends Component {
-  state = { 
-    activePage: pageArr[0],
-    userID: ""
-   };
+  state = {
+    activeItem: "",
+    isLoggedIn: false
+  };
 
-  handleNavClick = (event, { name }) => this.setState({ activePage: name });
+  componentDidMount() {
+    if (Auth.loggedIn()) {
+      this.setState({ isLoggedIn: true })
+    }
+  }
+
+  logout() {
+    Auth.logout()
+  }
+
+  handleNavClick = (event, { name }) => {
+    this.setState({ activeItem: { name }.name })
+  };
 
   render() {
     const { activePage } = this.state;
@@ -29,16 +38,65 @@ export default class NavBar extends Component {
     return (
       <div>
         <Menu inverted>
-          {pageArr.map((page , index) => (
+          <Menu.Item
+            as={Link}
+            to="/"
+            key="home"
+            name="home"
+            active={this.state.activeItem === 'home'}
+            onClick={this.handleNavClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/unsponsored"
+            key="browse events"
+            name="browse events"
+            active={this.state.activeItem === 'browse events'}
+            onClick={this.handleNavClick}
+          />
+          {this.state.isLoggedIn ? (
             <Menu.Item
               as={Link}
-              to={linkArr[index]}
-              key={page}
-              name={page}
-              active={activePage === page}
+              to="/createevent"
+              key="create event"
+              name="create event"
+              active={this.state.activeItem === 'create event'}
               onClick={this.handleNavClick}
             />
-          ))};
+          ) : (
+              <div />
+            )}
+
+          <Menu.Menu position='right'>
+            {this.state.isLoggedIn ? (
+              <Menu.Item
+                as={Link}
+                to={profileLink}
+                key="profile"
+                name="profile"
+                active={this.state.activeItem === 'profile'}
+                onClick={this.handleNavClick}
+              />
+            ) : (
+                <div />
+              )}
+
+            {this.state.isLoggedIn ? (
+              <Menu.Item
+                href="/"
+                name="logout"
+                active={this.state.activeItem === 'logout'}
+                onClick={this.logout}
+              />
+            ) : (
+                <Menu.Item
+                  href="/login"
+                  name="login"
+                  active={this.state.activeItem === 'login'}
+                  onClick={this.handleNavClick}
+                />
+              )}
+          </Menu.Menu>
         </Menu>
       </div>
     );

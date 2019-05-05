@@ -20,8 +20,9 @@ import EventProfilePage from "./pages/EventProfilePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 import EventsNextWeekPage from "./pages/EventsNextWeekPage";
+import EventsByCategoryPage from "./pages/EventsByCategoryPage";
 
-import AuthLogin from "./components/Auth/Login";
+import Auth from "./utils/Auth";
 import EventsLandingPage from "./pages/EventsLandingPage";
 import LoginPage from "./pages/LoginPage";
 import Jumbotron from "./components/Jumbotron";
@@ -29,7 +30,7 @@ import Jumbotron from "./components/Jumbotron";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    AuthLogin.loggedIn() === true
+    Auth.loggedIn() === true
     ? <Component {...props} />
     : <Redirect to="/login" />
   )}/>
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
           <Route exact path="/nextweek" component={EventsNextWeekPage} />
+          <Route exact path="/category" component={EventsByCategoryPage} />
           <PrivateRoute exact path="/event" component={EventProfilePage} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />

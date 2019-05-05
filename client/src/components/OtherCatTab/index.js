@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Container } from 'semantic-ui-react';
-import EventCard from "../components/EventCard";
-import API from "../utils/API";
+import API from "../../utils/API";
+import EventCard from "../EventCard";
 
-class UnsponsoredEventsPage extends Component {
+class OtherCatTab extends Component {
 
     state = {
         events: [],
     };
 
     componentDidMount() {
-        this.getEventsByStatus(false)
+        this.getEventsByCategory("Other")
     };
 
-    getEventsByStatus = type => {
-        API.getEventsByStatus(type).then(res => {
-            console.log(res.data , "status data")
+    getEventsByCategory = category => {
+        API.getEventsByCategory(category).then(res => {
             this.setState({events: res.data})
-        }).catch(err => console.log(err))
-    };
-
+        }).catch(err => console.log(err));
+    }; 
+    
     render() {
         return (
-            <Container className="three column doubling centered grid container">
-               {this.state.events.map(event => {
+            <Container>
+                {this.state.events.map(event => {
                    return (<EventCard
                    key={event._id}
                    name={event.name}
@@ -35,8 +34,7 @@ class UnsponsoredEventsPage extends Component {
                    />);
                })};
             </Container>
-        );
-    };
+    )}
 };
 
-export default UnsponsoredEventsPage;
+export default OtherCatTab;
