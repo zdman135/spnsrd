@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-import AuthLogin from "../Auth/Login";
+import Auth from "../../utils/Auth";
 
 let userID = "test";
 
-if (AuthLogin.loggedIn()) {
-  let userProfile = AuthLogin.getProfile();
+if (Auth.loggedIn()) {
+  let userProfile = Auth.getProfile();
   userID = userProfile.id
 } else {
   userID = "";

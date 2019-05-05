@@ -3,7 +3,7 @@ import { Container, Button } from 'semantic-ui-react';
 import ProfileSegment from "../components/ProfileSegment";
 import ProfileImage from "../components/ProfileImage";
 import ProfileStatusSegment from "../components/ProfileStatusSegment";
-import AuthLogin from "../components/Auth/Login";
+import Auth from "../utils/Auth";
 import API from '../utils/API';
 
 let userID;
@@ -26,7 +26,7 @@ class EventProfile extends Component {
         API.getEventById(id).then(res => {
             this.setState({ eventData: res.data })
             this.setState({ userIdsOfSponsored: res.data.sponsors })
-            userID = AuthLogin.getProfile().id;
+            userID = Auth.getProfile().id;
             if (this.state.userIdsOfSponsored.includes(userID)) {
                 this.setState({ sponsored: true })
             }

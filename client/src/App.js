@@ -22,13 +22,13 @@ import UnsponsoredEventsPage from "./pages/UnsponsoredEventsPage";
 import EventsNextWeekPage from "./pages/EventsNextWeekPage";
 import EventsByCategoryPage from "./pages/EventsByCategoryPage";
 
-import AuthLogin from "./components/Auth/Login";
+import Auth from "./utils/Auth";
 import EventsLandingPage from "./pages/EventsLandingPage";
 import LoginPage from "./pages/LoginPage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    AuthLogin.loggedIn() === true
+    Auth.loggedIn() === true
     ? <Component {...props} />
     : <Redirect to="/login" />
   )}/>
