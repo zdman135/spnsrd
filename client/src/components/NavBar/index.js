@@ -12,7 +12,6 @@ if (Auth.loggedIn()) {
 
 const profileLink = `/profile/${userID}`
 
-
 export default class NavBar extends Component {
   state = {
     activeItem: "",
