@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Register from '../components/Register/Register'
-import API from "../utils/API"
+import { Redirect } from 'react-router-dom';
+import Register from '../components/Register/';
+import API from "../utils/API";
 
 class RegisterPage extends Component {
 
@@ -10,7 +11,14 @@ class RegisterPage extends Component {
         password: "",
         password2: "",
         age: "",
-        image: ""
+        image: "",
+        isRegistered: false
+    };
+
+    setRedirect =  _=> {
+        this.setState({
+          isRegistered: true
+        });
     };
 
     register = () => {
@@ -24,9 +32,12 @@ class RegisterPage extends Component {
           })
             .then(res => {
               console.log(res.data)
+            }).then( _=> {
+                console.log("redirecting...")
+                this.setRedirect();
             })
             .catch(err => console.log(err));
-    }
+    };
 
     handleInputChange = event => {
         let value = event.target.value;
@@ -40,7 +51,7 @@ class RegisterPage extends Component {
     handleRegister = event => {
         event.preventDefault();
 
-        this.register()
+        this.register();
 
         this.setState({
             name: "",
@@ -54,7 +65,9 @@ class RegisterPage extends Component {
 
     render() {
         return (
-            <Register
+           (this.state.isRegistered) 
+           ? <Redirect to='/login' />
+           : <Register
             name={this.state.name}
             email={this.state.email}
             password={this.state.password}
@@ -65,7 +78,7 @@ class RegisterPage extends Component {
             handleRegister={this.handleRegister}
              />
         );
-    }
-}
+    };
+};
 
 export default RegisterPage;

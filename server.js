@@ -4,7 +4,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 require('dotenv').config()
 
-const db = require("./models");
 const mongoose = require("mongoose");
 
 //DO NOT FORGET TO UPDATE YOUR LOCAL DATABASE NAME AND START MONGOD BEFORE RUNNING NPM START
@@ -24,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
 
 app.use("/api/users", users);
 app.use("/api/events", events);

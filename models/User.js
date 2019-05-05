@@ -9,7 +9,8 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
@@ -28,7 +29,7 @@ const UserSchema = new Schema({
   image: {
     type: String,
     required: true,
-    //TODO: ADD DEFAULT NO USER IMAGE
+    default: "https://www.aj-chambers.com/front/images/default-user.jpg"
   },
   age: {
     type: Number,

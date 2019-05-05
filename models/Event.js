@@ -3,12 +3,6 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const EventSchema = new Schema({
-    // manualID: {
-    //     type: Schema.Types.ObjectId,
-    //     default: mongoose.Types.ObjectId(),
-    //     required: true,
-    //     unique: true
-    // },
     name: {
         type: String,
         required: true
@@ -38,17 +32,16 @@ const EventSchema = new Schema({
         default: false,
         required: true
     },
-    sponsors: [Schema.Types.ObjectId],
+    sponsors: [String],
     createdBy: {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId, 
         ref: "User",
         required: true
-        //TODO: ADD DEFAULT USER JUST IN CASE
     },
     image: {
         type: String,
         required: true,
-        //TODO: ADD DEFAULT NO USER IMAGE
+        default: "https://www.aj-chambers.com/front/images/default-user.jpg"
       }
 
 }, {id: true});

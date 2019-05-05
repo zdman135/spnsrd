@@ -1,23 +1,46 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Container} from "semantic-ui-react";
+import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import Auth from "../../utils/Auth";
 
-import Example from "./navbar";
+let userID = "test";
 
-const App = ({ children }) => (
-  <Container style={{ margin: 20 }}>
-    {children}
-  </Container>
-);
+if (Auth.loggedIn()) {
+  let userProfile = Auth.getProfile();
+  userID = userProfile.id
+} else {
+  userID = "";
+}
 
-const styleLink = document.createElement("link");
-styleLink.rel = "stylesheet";
-styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
-document.head.appendChild(styleLink);
+const pageArr = ['Browse Events', 'Create Event', 'Profile'];
+const linkArr = ["/unsponsored" , "/createevent" , `/profile/${userID}`]
 
-ReactDOM.render(
-  <App>
-    <Example />
-  </App>,
-  document.getElementById("root")
-);
+export default class NavBar extends Component {
+  state = { 
+    activePage: pageArr[0],
+    userID: ""
+   };
+
+  handleNavClick = (event, { name }) => this.setState({ activePage: name });
+
+  render() {
+    const { activePage } = this.state;
+
+    return (
+      <div>
+        <Menu inverted>
+          {pageArr.map((page , index) => (
+            <Menu.Item
+              as={Link}
+              to={linkArr[index]}
+              key={page}
+              name={page}
+              active={activePage === page}
+              onClick={this.handleNavClick}
+            />
+          ))};
+        </Menu>
+      </div>
+    );
+  };
+};
