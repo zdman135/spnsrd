@@ -28,7 +28,7 @@ class CategoryTabs extends Component {
 
     render() {
         return( 
-            <Container>
+            <Container className="three column container">
             <Tab panes={panes} activeIndex={this.state.activeIndex} onTabChange={this.handleTabChange} /> 
             </Container>
         )

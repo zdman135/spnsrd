@@ -54,6 +54,20 @@ export default class NavBar extends Component {
             active={this.state.activeItem === 'browse events'}
             onClick={this.handleNavClick}
           />
+
+          {this.state.isLoggedIn ? (
+            <Menu.Item
+              as={Link}
+              to="/category"
+              key="browse by category"
+              name="browse by category"
+              active={this.state.activeItem === 'browse by category'}
+              onClick={this.handleNavClick}
+            />
+          ) : (
+              <div />
+            )}
+            
           {this.state.isLoggedIn ? (
             <Menu.Item
               as={Link}

@@ -27,6 +27,7 @@ class LoginPage extends Component {
                 console.log(res.data)
                 Auth.setToken(res.data.token);
                 this.setState({ isLoggedIn: true })
+                window.location.reload(); 
             })
             .catch(err => console.log(err));
     }
