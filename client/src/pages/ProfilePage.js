@@ -34,7 +34,7 @@ class ProfilePage extends Component {
                 <ProfileImage info={this.state.userData.image}/>
                 <ProfileSegment info={this.state.userData.name}/>
                 <ProfileSegment info={this.state.userData.age}/>
-                <ProfileSegment info={this.state.userData.shortText}/>
+                {/* <ProfileSegment info={this.state.userData.shortText}/> */}
                 {/* TODO: Add EventCard Container */}
             </Container>
         )
