@@ -95,7 +95,7 @@ createUserObjects = () => {
       age: Math.floor(Math.random() * 60) + 20    
     }
 
-    userObject.  = isItSponsored()
+    userObject.isSponsor = isItSponsored()
     userObject.image = profilePics[i];
     userProfiles.push(userObject)
   }
@@ -127,7 +127,7 @@ setTimeout(() => {
         createdBy: ""
       }
       
-      eventObject.isSponsored = isItSponsored()
+      eventObject.isSponsored = false
       eventObject.image = festivalImages[i];
       eventObject.shortText = festivalShortText[i];
       eventObject.longText = festivalLongText[i];

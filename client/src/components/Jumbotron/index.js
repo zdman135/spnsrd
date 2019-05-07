@@ -259,7 +259,7 @@ const HomepageLayout = () => (
           service is really for you. Seeing is believing after all. So see for yourself what is 
           in store for you by browsing events that are waiting to be sponsored!
         </p>
-        <Button as='a' size='large'>
+        <Button as='a' href="/unsponsored" size='large'>
           Browse Events
         </Button>
         <Divider

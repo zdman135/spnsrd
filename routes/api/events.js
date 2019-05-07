@@ -59,9 +59,10 @@ router.post("/createevent", (req, res) => {
     newEvent.save().then(event => res.json(event)).catch(err => console.log(err));
 });
 
+
 router.put("/:eventId", (req, res) => {
     if (mongoose.Types.ObjectId.isValid(req.params.eventId)) {
-        Event.findOneAndUpdate({ '_id': req.params.eventId }, { $set: req.body }, (err, doc) => {
+        Event.findOneAndUpdate({ '_id': req.params.eventId }, { $set: req.body, $push: {sponsors: req.body.sponsorId} }, (err, doc) => {
             if (err) return res.send(500, { error: err });
             return res.send("Event Successfully Saved");
         });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import API from "../utils/API";
-// import AuthLogin from "../components/Auth/Login"; TODO use
+// import Auth from "../utils/Auth"; TODO use
 import ProfileSegment from "../components/ProfileSegment";
 import ProfileImage from "../components/ProfileImage";
 
