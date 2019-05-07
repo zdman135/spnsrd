@@ -9,10 +9,13 @@ import {
 import categoryOptions from "../../utils/categoryOptions.js";
 import DropdownInput from "../DropdownInput";
 
+const inLineStyle = {
+  marginTop: '75px',
+}; 
 
 function EventForm(props) {
   return(
-    <Grid centered columns={1}>
+    <Grid centered style={inLineStyle}>
     <Grid.Column>
       <Header as="h2" textAlign="center">
         Please fill out the following form to create your event.

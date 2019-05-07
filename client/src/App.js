@@ -44,8 +44,8 @@ function App() {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/unsponsored" component={UnsponsoredEventsPage} />
-          <Route exact path="/nextweek" component={EventsNextWeekPage} />
-          <Route exact path="/category" component={EventsByCategoryPage} />
+          <PrivateRoute exact path="/nextweek" component={EventsNextWeekPage} />
+          <PrivateRoute exact path="/category" component={EventsByCategoryPage} />
           <PrivateRoute exact path="/event" component={EventProfilePage} />
           <PrivateRoute path="/profile/:id" component={ProfilePage} />
           <PrivateRoute exact path="/createevent" component={CreateEventPage} />
@@ -55,7 +55,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-
   );
 }
 
