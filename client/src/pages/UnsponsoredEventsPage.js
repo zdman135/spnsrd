@@ -3,7 +3,10 @@ import { Container } from 'semantic-ui-react';
 import EventCard from "../components/EventCard";
 import API from "../utils/API";
 
+
+
 class UnsponsoredEventsPage extends Component {
+    
 
     state = {
         events: [],
@@ -21,8 +24,11 @@ class UnsponsoredEventsPage extends Component {
     };
 
     render() {
+        const inLineStyle = {
+            marginTop: '75px',
+          }; 
         return (
-            <Container className="three column doubling centered grid container">
+            <Container className="three column doubling centered grid container" style={inLineStyle}>
                {this.state.events.map(event => {
                    return (<EventCard
                    key={event._id}
