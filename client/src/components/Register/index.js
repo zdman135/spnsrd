@@ -8,10 +8,13 @@ import {
   Segment,
 } from 'semantic-ui-react';
 
+const inlineStyle = {
+  marginTop: '75px'
+};
 
 function Register(props) {
   return(
-    <Grid centered columns={2}>
+    <Grid centered style={inlineStyle}>
     <Grid.Column>
       <Header as="h2" textAlign="center">
         Please follow the following steps.
