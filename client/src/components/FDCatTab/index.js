@@ -33,7 +33,7 @@ class FDCatTab extends Component {
                    isSponsored={event.isSponsored}
                    location={event._id}
                    />);
-               })};
+               })}
             </Container>
     )}
 };
