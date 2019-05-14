@@ -32,7 +32,7 @@ class MusicCatTab extends Component {
                    isSponsored={event.isSponsored}
                    location={event._id}
                    />);
-               })};
+               })}
             </Container>
     )}
 };
