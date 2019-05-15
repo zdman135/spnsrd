@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Button } from 'semantic-ui-react';
-import ProfileSegment from "../components/ProfileSegment";
 import ProfileImage from "../components/ProfileImage";
 import ProfileStatusSegment from "../components/ProfileStatusSegment";
 import Auth from "../utils/Auth";
 import API from '../utils/API';
 import Moment from 'react-moment';
-import { Icon, Image, Item, Label } from 'semantic-ui-react'
+import { Icon, Item } from 'semantic-ui-react'
 
 
 let userID;
