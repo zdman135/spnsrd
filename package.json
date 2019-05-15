@@ -39,6 +39,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.1",
     "mongoose-unique-validator": "^2.0.2",
     "nodemon": "^1.18.11",

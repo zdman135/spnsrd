@@ -5,6 +5,9 @@ import ProfileImage from "../components/ProfileImage";
 import ProfileStatusSegment from "../components/ProfileStatusSegment";
 import Auth from "../utils/Auth";
 import API from '../utils/API';
+import Moment from 'react-moment';
+import { Icon, Image, Item, Label } from 'semantic-ui-react'
+
 
 let userID;
 class EventProfile extends Component {
@@ -61,27 +64,49 @@ class EventProfile extends Component {
         const inlineStyle = {
             marginTop: '25px'
         }
+
         return (
             <Container style={inlineStyle}>
+
                 <ProfileImage info={this.state.eventData.image} />
-                <ProfileStatusSegment info={this.state.eventData.isSponsored} />
-                <ProfileSegment info={this.state.eventData.name} />
-                <ProfileSegment info={this.state.eventData.date} />
-                <ProfileSegment info={this.state.eventData.location} />
-                <ProfileSegment info={this.state.eventData.shortText} />
-                <ProfileSegment info={this.state.eventData.longText} />
-                <ProfileSegment info={this.state.eventData.category} />
-                <ProfileSegment info={this.state.eventData.image} />
-                {this.state.sponsored ? (
-                    <Button disabled>Event Sponsored!</Button>
+
+                <Item.Group divided>
+                    <Item>
+                        <Item.Content>
+                            <Item.Header as='a'>{this.state.eventData.name}</Item.Header>
+                            <Item.Meta>
+                            <Moment format="MM/DD/YYYY">
+                                <span className='cinema'>{this.state.eventData.date}</span>
+                            </Moment>
+                            </Item.Meta>
+                            <Item.Meta>
+                                <span className='cinema'>{this.state.eventData.location}</span>
+                            </Item.Meta>
+                            <Item.Description><i>Category: {this.state.eventData.category}</i></Item.Description>
+
+                            <Item.Description>{this.state.eventData.shortText}</Item.Description>
+                            <Item.Description>{this.state.eventData.longText}</Item.Description>
+                            <Item.Description><ProfileStatusSegment info={this.state.eventData.isSponsored} /></Item.Description>
+
+                            <Item.Extra>
+                                {this.state.sponsored ? (
+                    <Button floated='right' disabled>Event Sponsored!</Button>
                 ) : (
                         this.state.isLoggedIn ? (
-                            <Button id="sponsorBtn" onClick={this.handleBtnClick} >Sponsor This Event!</Button>
+                            <Button id="sponsorBtn" floated='right' onClick={this.handleBtnClick} >Sponsor This Event!<Icon name='right chevron' />
+                            </Button>
                         ) : (
-                                <Button id="sponsorBtn" href='/register' >Register to Sponsor Event!</Button>
+                                <Button id="sponsorBtn" floated='right' href='/register' >Register to Sponsor Event!<Icon name='right chevron' /> </Button>
                             )
 
                     )}
+
+
+                            </Item.Extra>
+                        </Item.Content>
+                    </Item>
+                </Item.Group>
+
                 {/* TODO: Add Similar EventCard Container Using Get Events by Category Route */}
             </Container>
         )
