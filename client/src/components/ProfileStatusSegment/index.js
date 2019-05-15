@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 function ProfileStatusSegment(props) {
     return(
