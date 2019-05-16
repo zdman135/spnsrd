@@ -18,7 +18,7 @@ const panes = [
 class CategoryTabs extends Component { 
 
     state = {
-        activeIndex: 1,
+        activeIndex: 1
     };
 
     handleTabChange = (event,  paneData ) => { 

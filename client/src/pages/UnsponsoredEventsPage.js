@@ -6,7 +6,6 @@ import API from "../utils/API";
 
 
 class UnsponsoredEventsPage extends Component {
-    
 
     state = {
         events: [],
@@ -25,7 +24,7 @@ class UnsponsoredEventsPage extends Component {
 
     render() {
         const inLineStyle = {
-            marginTop: '75px',
+            marginTop: '75px'
           }; 
         return (
             <Container className="three column doubling centered grid container" style={inLineStyle}>
@@ -39,7 +38,7 @@ class UnsponsoredEventsPage extends Component {
                    isSponsored={event.isSponsored}
                    location={event._id}
                    />);
-               })};
+               })}
             </Container>
         );
     };

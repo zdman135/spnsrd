@@ -1,21 +1,21 @@
 import React from 'react'
-import { Segment, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 function ProfileStatusSegment(props) {
     return(
         (props.info) 
-           ? <Segment>
+           ? <div>
                 <span>
                     <Icon name="money bill alternate" />
                     Sponsored
                 </span>
-            </Segment>
-           : <Segment>
+            </div>
+           : <div>
                 <span>
                     <Icon name="money bill alternate outline" />
                     Unsponsored
                 </span>
-            </Segment>
+            </div>
     )
 }
 

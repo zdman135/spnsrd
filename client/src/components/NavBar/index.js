@@ -33,7 +33,6 @@ export default class NavBar extends Component {
   };
 
   render() {
-    const { activePage } = this.state;
 
     return (
       <div>
